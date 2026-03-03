@@ -32,13 +32,19 @@ scp -r \
     alert_bot.py \
     trend_scanner.py \
     amazon_tracker.py \
+    amazon_demand.py \
     aliexpress_scanner.py \
+    ebay_scanner.py \
     price_monitor.py \
     competitor_tracker.py \
+    competitor_finder.py \
+    intelligence.py \
+    monitor.py \
     report_generator.py \
     run_all.py \
     requirements.txt \
     setup_cron.sh \
+    dropship-bot.service \
     .env.example \
     "${VPS}:~/${REMOTE_DIR}/" 2>/dev/null
 
@@ -51,13 +57,19 @@ if [ $? -ne 0 ]; then
         alert_bot.py \
         trend_scanner.py \
         amazon_tracker.py \
+        amazon_demand.py \
         aliexpress_scanner.py \
+        ebay_scanner.py \
         price_monitor.py \
         competitor_tracker.py \
+        competitor_finder.py \
+        intelligence.py \
+        monitor.py \
         report_generator.py \
         run_all.py \
         requirements.txt \
         setup_cron.sh \
+        dropship-bot.service \
         .env.example \
         "${VPS}:~/${REMOTE_DIR}/"
 fi
@@ -115,4 +127,11 @@ echo "  bash ~/dropship-bots/setup_cron.sh ~/dropship-bots"
 echo ""
 echo "  # 5. Check logs:"
 echo "  tail -f ~/dropship-bots/logs/trend_scanner.log"
+echo ""
+echo "  # Optional — run as a systemd service (auto-restart on crash/reboot):"
+echo "  sudo cp ~/dropship-bots/dropship-bot.service /etc/systemd/system/"
+echo "  sudo systemctl daemon-reload"
+echo "  sudo systemctl enable dropship-bot"
+echo "  sudo systemctl start dropship-bot"
+echo "  sudo systemctl status dropship-bot"
 echo ""

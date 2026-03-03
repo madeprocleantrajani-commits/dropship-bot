@@ -1,0 +1,18 @@
+[Unit]
+Description=Dropship Bot Suite
+After=network.target
+Wants=network-online.target
+
+[Service]
+Type=simple
+# Change User to whichever Linux user runs the bot on your VPS
+User=root
+WorkingDirectory=/root/dropship-bots
+ExecStart=/root/dropship-bots/venv/bin/python monitor.py
+Restart=always
+RestartSec=30
+StandardOutput=append:/root/dropship-bots/logs/service.log
+StandardError=append:/root/dropship-bots/logs/service.log
+
+[Install]
+WantedBy=multi-user.target
