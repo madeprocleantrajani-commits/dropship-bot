@@ -1,0 +1,25 @@
+# Python
+__pycache__/
+*.py[cod]
+*.egg-info/
+dist/
+build/
+.venv/
+venv/
+env/
+
+# Logs
+logs/*.log
+
+# Secrets / config overrides
+config/*.env
+config/secrets.*
+.env
+
+# Data files
+data/*.csv
+data/*.json
+
+# IDE
+.vscode/
+.idea/
